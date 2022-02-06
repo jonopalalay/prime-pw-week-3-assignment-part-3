@@ -30,32 +30,29 @@ supplyChanges.push(25);
 //    - if the value is 0, log 'No Change.'
 //    - if the value is negative, format the log as 'Removed x parts.'
 console.log('6. Showing supplyChanges...');
-for(let x=0; x<supplyChanges.length; x++){
-  if(supplyChanges [x] > 0){
-    console.log(`Added ${supplyChanges [x]} parts`)
+for(let x = 0; x < supplyChanges.length; x++){
+  if (supplyChanges[x] > 0) {
+    console.log(`Added ${supplyChanges[x]} parts`)
+  } else if (supplyChanges [x] === 0) {
+    console.log('No Change')
+  } else {
+    console.log(`Removed ${Math.abs(supplyChanges[x])} parts`)
   }
-    else if (supplyChanges [x] === 0) {
-      console.log('No Change')
-    }
-  else {
-        console.log(`Removed ${supplyChanges [x]} parts`)
-      }
 }
+
 
 // STRETCH GOALS
 console.log('---  Stretch Goals  ---');
 // 7. Rewrite the `for` loop from #6 as a `for of` loop.
 console.log('7. Showing supplyChanges with "for of" loop');
-for ( x of supplyChanges ){
-  if(x > 0){
+for (x of supplyChanges){
+  if (x > 0) {
     console.log(`Added ${x} parts`)
-}
-  else if (x === 0) {
+  } else if (x === 0) {
     console.log('No Change')
+  } else {
+    console.log(`Removed ${Math.abs(x)} parts`)
   }
-else {
-      console.log(`Removed ${x} parts`)
-    }
 }
 
 
@@ -79,13 +76,17 @@ console.log (sum);
 //    Then log how many boxes were filled, and how many parts are left over.
 console.log('9. Filling boxes with a "while" loop');
 
-let parts = 572;
-let boxes = [];
 
-while (parts > 6){
-    parts-=7;
-    boxes.push(boxes.length);
+let parts = 572;
+let boxesFilled = 0;
+
+while (parts >= 7) {
+  parts = parts - 7;
+  boxesFilled = boxesFilled + 1;
 }
 
-console.log(`There were ${boxes.length} boxes filled.`);
+// console.log(`There were ${boxes.length} boxes filled.`);
+// console.log(`There are ${parts} parts left over.`);
+
+console.log(`There were ${boxesFilled} boxes filled.`);
 console.log(`There are ${parts} parts left over.`);
